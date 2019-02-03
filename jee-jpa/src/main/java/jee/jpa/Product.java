@@ -1,12 +1,16 @@
 package jee.jpa;
 
-//@Entity
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 //@Table(name = "produits")
 //@NamedQuery(name = "low stock", query = "from Product where stock<=50")
 public class Product {
 
-//  @Id
-//  @GeneratedValue
+  @Id
+  @GeneratedValue
   private long id;
 
 //  @Column
@@ -18,7 +22,7 @@ public class Product {
 //  @Transient
   private String computedString;
 
-  // { autofold
+// { autofold
   public Product() {
     this(0, "");
   }
@@ -71,5 +75,5 @@ public class Product {
             ", title='" + title + '\'' +
             '}';
   }
-  // }
+// }
 }
