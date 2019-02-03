@@ -1,6 +1,7 @@
 package jee.jpa;
 
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import javax.persistence.EntityManager;
@@ -19,6 +20,13 @@ public class JPATest {
     private EntityManager entityManager;
     private EntityManagerFactory projet;
 
+    @Before
+    public void initEntityManager() {
+        projet = Persistence.createEntityManagerFactory("projet");
+        entityManager = projet.createEntityManager();
+        entityManager.setFlushMode(FlushModeType.COMMIT);
+    }
+
     @After
     public void close() {
         entityManager.close();
@@ -28,10 +36,6 @@ public class JPATest {
     @Test
     public void testSimplePersist() {
         try {
-            projet = Persistence.createEntityManagerFactory("projet");
-            entityManager = projet.createEntityManager();
-            entityManager.setFlushMode(FlushModeType.COMMIT);
-
             // GIVEN
             final EntityTransaction transaction = entityManager.getTransaction();
             transaction.begin();
