@@ -13,7 +13,7 @@ public class Product {
   private String computedString;
 
   // { autofold
-  public Product() {
+public Product() {
     this(0, "");
   }
 
