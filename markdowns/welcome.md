@@ -31,6 +31,9 @@ Tech.io provides all the tools to embed visual and interactive content like a We
 
 # JPA Test
 
-Ajouter les annotations nécessaire à la persistence du `Data Object`
+Ajouter les annotations nécessaire à la persistence du `Data Object` : 
 
-@[Produit.java?]({"stubs": ["src/main/java/jee/jpa/Product.java"], "command": "jee.jpa.JPATest#testSimplePersist"})
+- L'identifiant doit être incrémenté automatiquement
+- La propriété `computedString` ne doit pas être sauvegardée
+
+@[Product.java]({"stubs": ["src/main/java/jee/jpa/Product.java"], "command": "jee.jpa.JPATest#testSimplePersist"})

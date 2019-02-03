@@ -20,6 +20,8 @@ public class Product {
   @Transient
   private String computedString;
 
+  // { autofold
+
   public Product() {
     this(0, "");
   }
@@ -72,4 +74,6 @@ public class Product {
             ", title='" + title + '\'' +
             '}';
   }
+
+  // }
 }

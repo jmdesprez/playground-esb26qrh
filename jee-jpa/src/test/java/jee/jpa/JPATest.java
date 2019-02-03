@@ -9,6 +9,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.FlushModeType;
 import javax.persistence.Persistence;
+import javax.persistence.Transient;
 
 import static jee.jpa.TechIOCommands.msg;
 import static jee.jpa.TechIOCommands.success;
@@ -54,7 +55,21 @@ public class JPATest {
 
             // THEN
             // L'id doit avoir changé
-            assertThat(id).isNotEqualTo(0);
+            if (id == 0) {
+                msg("Oups ! 🐞", "L'identifiant doit être auto-incrémenté");
+                success(false);
+            }
+            assertThat(id).as("L'identifiant doit être auto-incrémenté").isNotEqualTo(0);
+
+            try {
+                final Transient annotation = Product.class.getField("computedString").getAnnotation(Transient.class);
+                if(annotation == null) {
+                    throw new AssertionError("Le champ 'computedString' ne doit pas être sauvegardé");
+                }
+
+            } catch (NoSuchFieldException e) {
+                e.printStackTrace();
+            }
 
             // WHEN
             transaction.begin();
