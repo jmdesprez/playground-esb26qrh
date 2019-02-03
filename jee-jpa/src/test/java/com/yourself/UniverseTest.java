@@ -5,7 +5,10 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
+
+import static jee.jpa.TechIOCommands.existsInFile;
+import static jee.jpa.TechIOCommands.msg;
+import static jee.jpa.TechIOCommands.success;
 
 
 public class UniverseTest {
@@ -38,25 +41,4 @@ public class UniverseTest {
         }
     }
 
-    private static void msg(String channel, String msg) {
-        System.out.println(String.format("TECHIO> message --channel \"%s\" \"%s\"", channel, msg));
-    }
-
-    private static void success(boolean success) {
-        System.out.println(String.format("TECHIO> success %s", success));
-    }
-
-    // check if a string exists in a text file
-    private static boolean existsInFile(String str, File file) throws FileNotFoundException {
-        Scanner scanner = new Scanner(file);
-        try {
-            while (scanner.hasNextLine()) {
-                if (scanner.nextLine().contains(str))
-                    return true;
-            }
-            return false;
-        } finally {
-            scanner.close();
-        }
-    }
 }

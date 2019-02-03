@@ -10,6 +10,8 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.FlushModeType;
 import javax.persistence.Persistence;
 
+import static jee.jpa.TechIOCommands.msg;
+import static jee.jpa.TechIOCommands.success;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class JPATest {
@@ -37,30 +39,38 @@ public class JPATest {
 
     @Test
     public void testSimplePersist() {
-        // GIVEN
-        final EntityTransaction transaction = entityManager.getTransaction();
-        transaction.begin();
-        final Product toSave = new Product();
-        toSave.setId(0);
-        toSave.setTitle("mon produit");
+        try {
+            // GIVEN
+            final EntityTransaction transaction = entityManager.getTransaction();
+            transaction.begin();
+            final Product toSave = new Product();
+            toSave.setId(0);
+            toSave.setTitle("mon produit");
 
-        // WHEN
-        entityManager.persist(toSave);
-        final long id = toSave.getId();
-        transaction.commit();
+            // WHEN
+            entityManager.persist(toSave);
+            final long id = toSave.getId();
+            transaction.commit();
 
-        // THEN
-        // L'id doit avoir changé
-        assertThat(id).isNotEqualTo(0);
+            // THEN
+            // L'id doit avoir changé
+            assertThat(id).isNotEqualTo(0);
 
-        // WHEN
-        transaction.begin();
-        final Product foundProduct = entityManager.find(Product.class, id);
-        transaction.commit();
+            // WHEN
+            transaction.begin();
+            final Product foundProduct = entityManager.find(Product.class, id);
+            transaction.commit();
 
-        // THEN
-        assertThat(foundProduct.getId()).isEqualTo(id);
-        assertThat(foundProduct.getTitle()).isEqualTo("mon produit");
+            // THEN
+            assertThat(foundProduct.getId()).isEqualTo(id);
+            assertThat(foundProduct.getTitle()).isEqualTo("mon produit");
+
+            msg("Kudos 🌟", "GGWP !");
+
+        } catch (AssertionError ae) {
+            success(false);
+            msg("Oups ! 🐞", ae.getMessage());
+        }
     }
 
     @Test
