@@ -1,27 +1,24 @@
 package jee.jpa;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "produits")
-@NamedQuery(name = "low stock", query = "from Product where stock<=50")
+//@Entity
+//@Table(name = "produits")
+//@NamedQuery(name = "low stock", query = "from Product where stock<=50")
 public class Product {
 
-  @Id
-  @GeneratedValue
+//  @Id
+//  @GeneratedValue
   private long id;
 
-  @Column
+//  @Column
   private int stock;
 
-  @Column(name = "titre", length = 50, unique = true)
+//  @Column(name = "titre", length = 50, unique = true)
   private String title;
 
-  @Transient
+//  @Transient
   private String computedString;
 
   // { autofold
-
   public Product() {
     this(0, "");
   }
@@ -74,6 +71,5 @@ public class Product {
             ", title='" + title + '\'' +
             '}';
   }
-
   // }
 }
