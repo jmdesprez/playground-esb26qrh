@@ -1,9 +1,8 @@
 // { autofold
 package jee.jpa;
+// }
 
 import javax.persistence.*;
-
-// }
 
 public class Product {
 
@@ -16,6 +15,10 @@ public class Product {
   private String computedString; // do not store
 
     // { autofold
+
+    /**
+     * Create the product with an empty title
+     */
     public Product() {
         this(0, "");
     }
