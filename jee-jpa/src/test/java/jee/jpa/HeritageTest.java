@@ -1,9 +1,9 @@
 package jee.jpa;
 
 import jee.jpa.heritage.DisqueDur;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -18,7 +18,7 @@ public class HeritageTest {
     private EntityManager entityManager;
     private EntityManagerFactory projet;
 
-    @BeforeEach
+    @Before
     public void init() {
         projet = Persistence.createEntityManagerFactory("projet");
 
@@ -30,7 +30,7 @@ public class HeritageTest {
         entityManager.setFlushMode(FlushModeType.COMMIT);
     }
 
-    @AfterEach
+    @After
     public void close() {
         entityManager.close();
         projet.close();

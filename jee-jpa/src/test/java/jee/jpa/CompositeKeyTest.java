@@ -2,9 +2,9 @@ package jee.jpa;
 
 import jee.jpa.IdClass.Project;
 import jee.jpa.IdClass.ProjectId;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -19,7 +19,7 @@ public class CompositeKeyTest {
     private EntityManager entityManager;
     private EntityManagerFactory projet;
 
-    @BeforeEach
+    @Before
     public void init() {
         projet = Persistence.createEntityManagerFactory("projet");
 
@@ -31,7 +31,7 @@ public class CompositeKeyTest {
         entityManager.setFlushMode(FlushModeType.COMMIT);
     }
 
-    @AfterEach
+    @After
     public void close() {
         projet.close();
     }

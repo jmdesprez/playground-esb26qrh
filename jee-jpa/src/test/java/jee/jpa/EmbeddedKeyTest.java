@@ -2,9 +2,9 @@ package jee.jpa;
 
 import jee.jpa.embbededId.Voiture;
 import jee.jpa.embbededId.VoitureId;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -19,7 +19,7 @@ public class EmbeddedKeyTest {
     private EntityManager entityManager;
     private EntityManagerFactory projet;
 
-    @BeforeEach
+    @Before
     public void init() {
         projet = Persistence.createEntityManagerFactory("projet");
 
@@ -31,7 +31,7 @@ public class EmbeddedKeyTest {
         entityManager.setFlushMode(FlushModeType.COMMIT);
     }
 
-    @AfterEach
+    @After
     public void close() {
         projet.close();
     }

@@ -1,8 +1,8 @@
 package jee.jpa;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -17,7 +17,7 @@ public class JPATest {
     private EntityManager entityManager;
     private EntityManagerFactory projet;
 
-    @BeforeEach
+    @Before
     public void init() {
         projet = Persistence.createEntityManagerFactory("projet");
 
@@ -29,7 +29,7 @@ public class JPATest {
         entityManager.setFlushMode(FlushModeType.COMMIT);
     }
 
-    @AfterEach
+    @After
     public void close() {
         entityManager.close();
         projet.close();
