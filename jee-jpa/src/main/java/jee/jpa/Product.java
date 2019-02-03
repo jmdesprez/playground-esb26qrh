@@ -10,9 +10,9 @@ public class Product {
 
   private String title;
 
-  private String computedString;
+  private String computedString; // do not store
 
-  // { autofold
+// { autofold
 public Product() {
     this(0, "");
   }
@@ -64,6 +64,6 @@ public Product() {
             "id=" + id +
             ", title='" + title + '\'' +
             '}';
-  }
+}
 // }
 }

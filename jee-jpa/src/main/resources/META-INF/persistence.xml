@@ -9,7 +9,7 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!--<mapping-file>META-INF/mappingFile.xml</mapping-file>-->
         <!--<jar-file>packedEntity.jar</jar-file>-->
-        <!--<class>sample.MyEntity1</class>-->
+        <class>jee.jpa.Product</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:h2:file:./h2/db;DB_CLOSE_DELAY=-1"/>
