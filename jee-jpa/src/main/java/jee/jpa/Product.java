@@ -1,28 +1,18 @@
+// { autofold
 package jee.jpa;
+// }
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-@Entity
-//@Table(name = "produits")
-//@NamedQuery(name = "low stock", query = "from Product where stock<=50")
 public class Product {
 
-  @Id
-  @GeneratedValue
   private long id;
 
-//  @Column
   private int stock;
 
-//  @Column(name = "titre", length = 50, unique = true)
   private String title;
 
-//  @Transient
   private String computedString;
 
-// { autofold
+  // { autofold
   public Product() {
     this(0, "");
   }
