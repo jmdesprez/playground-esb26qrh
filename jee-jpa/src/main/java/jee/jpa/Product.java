@@ -1,6 +1,5 @@
 // { autofold
 package jee.jpa;
-// }
 
 import javax.persistence.*;
 
@@ -71,5 +70,4 @@ public class Product {
                 ", title='" + title + '\'' +
                 '}';
     }
-    // }
 }
