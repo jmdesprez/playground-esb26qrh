@@ -1,5 +1,6 @@
 // { autofold
 package jee.jpa;
+// }
 
 import javax.persistence.*;
 
@@ -62,7 +63,9 @@ public class Product {
     public void setComputedString(String computedString) {
         this.computedString = computedString;
     }
+    // }
 
+    // { autofold
     @Override
     public String toString() {
         return "Product{" +
@@ -70,4 +73,5 @@ public class Product {
                 ", title='" + title + '\'' +
                 '}';
     }
+    // }
 }
