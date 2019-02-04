@@ -12,7 +12,7 @@ public class Product {
 
     private String title;
 
-  private String computedString; // do not store
+    private String computedString; // do not store
 
     // { autofold
 
