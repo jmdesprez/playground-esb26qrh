@@ -4,18 +4,14 @@ package jee.jpa;
 
 import javax.persistence.*;
 
-@Entity
 public class Product {
 
-    @Id
-    @GeneratedValue
     private long id;
 
     private int stock;
 
     private String title;
 
-    @Transient
     private String computedString; // do not store
 
     // { autofold
